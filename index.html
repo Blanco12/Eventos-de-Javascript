@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos en Javascript</title>
+</head>
+<body>
+    <button id="boton">Boton</button>
+    <input type="text" id="input">
+
+    <script>
+
+        (function(){
+
+            var  hola= function(e){
+                console.log("El evento es: "+e.type);
+            };
+
+            var enconsola=function(){
+                console.log("Ha existido un cambio");
+            }
+            var input=document.getElementById('input');
+            var boton=document.getElementById('boton');
+            input.addEventListener("focus",hola); // focus, cuando entra al input
+            input.addEventListener("blur",hola); //blur, contrario a focus
+           // input.addEventListener("change",enconsola); change, Funciona cuando existe un cambio
+            boton.addEventListener("click",hola);
+            boton.addEventListener("click",enconsola);
+            boton.removeEventListener("click",enconsola);
+        }())
+    </script>
+</body>
+</html>
